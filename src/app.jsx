@@ -53,7 +53,8 @@ const App = () => {
             number: feet,
         }
         axios.post('/convert', send).then(({data}) => {
-            setMeters(data);
+            setPrint(data.message);
+            setMeters(data.data);
         })
     }
 
@@ -62,8 +63,9 @@ const App = () => {
             <GlobalStyles />
             <h1>Convert meters to feet</h1>
             <label>meters</label>
-            <input type="text" onChange={setMeters} />
+            <input type="text" onChange={getFeet} value={feet}/>
             <Button onClick={convert}>Convert</Button>
+            <p>{print}</p>
             <p>{meters}</p>
         </Container>
     )

@@ -59,6 +59,7 @@ const App = () => {
 
     return (
         <Container>
+            <GlobalStyles />
             <h1>Convert meters to feet</h1>
             <label>meters</label>
             <input type="text" onChange={setMeters} />
@@ -68,6 +69,4 @@ const App = () => {
     )
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(<App />);
+export default App;

@@ -4,6 +4,4 @@ def convert(n):
     y = n * 3.28084
     print(y)
 
-x = sys.argv[1]
-
-convert(x)
+convert(sys.argv[1])

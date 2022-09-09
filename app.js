@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
 
 app.post('/convert', (req, res) => {
     let number = req.body.number;
+    console.log(number);
     let out = spawn('python', ['convert.py', number]);
     res.json({
         message: number + ' feet in meters is',

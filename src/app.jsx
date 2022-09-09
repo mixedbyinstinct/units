@@ -32,7 +32,7 @@ flex-grow: 1;
 `;
 
 const Button = styled.button`
-background-color; LightSeaGreen;
+background-color: LightSeaGreen;
 color: #EEECED;
 font-family: system-ui;
 height: 28px;

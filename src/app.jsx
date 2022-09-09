@@ -52,7 +52,7 @@ const App = () => {
         let send = {
             number: feet,
         }
-        axios.post('/convert', send).then(({data}) => {
+        axios.post("/convert", send).then(({data}) => {
             setPrint(data.message);
             setMeters(data.data);
         })

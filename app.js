@@ -17,13 +17,20 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 })
 
-app.post('/convert', (req, res) => {
+app.post("/convert", (req, res) => {
+    let out;
     let number = req.body.number;
     console.log(number);
-    let out = spawn('python', ['convert.py', number]);
-    res.json({
-        message: number + ' feet in meters is',
-        data: out
+    const process = spawn('python', ['convert.py', number]);
+    process.stdout.on('data', (data) => {
+        out = data.toString();
+    })
+    process.stdout.on('end', () => {
+        console.log(out);
+        res.json({
+            message: number + ' feet in meters is:',
+            data: out
+        });
     })
 })
 

@@ -29,7 +29,7 @@ app.post("/convert", (req, res) => {
         console.log(out);
         res.json({
             message: number + ' feet in meters is:',
-            data: out
+            data: out + ' meters'
         });
     })
 })

@@ -38,7 +38,7 @@ app.post("/convert", (req, res) => {
     let out;
     let number = req.body.number;
    // let script = req.body.script;
-    console.log(script);
+   // console.log(script);
     //const selectedScript = scriptSelector(script);
     console.log(number);
    // console.log(selectedScript);

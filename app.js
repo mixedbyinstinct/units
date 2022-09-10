@@ -45,7 +45,7 @@ app.post("/convert", async (req, res) => {
         }
         let dbo = db.db('personal-site-db');
         const scriptPath = await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}});
-        const process = spawn('python', [scriptPath, number]);
+        const process = spawn('python', [scriptPath.path, number]);
         process.stdout.on('data', (data) => {
             out = data.toString();
         })
@@ -53,7 +53,7 @@ app.post("/convert", async (req, res) => {
             return res.json({
                 message: number + ' feet in meters is',
                 data: out + ' meters',
-                script: scriptPath,
+               // script: scriptPath,
             })
         })
     })

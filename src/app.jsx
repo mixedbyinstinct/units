@@ -27,7 +27,7 @@ body {
         color: #171c26;
         filter: drop-shadow(0 2px 4px #0c0e13);
         &:hover {
-            animation: swing 1s;
+            animation: swing .3s;
         }
     }
     & label {
@@ -109,7 +109,7 @@ border-radius: 6px;
 border: none;
 filter: drop-shadow(0 1px 4px #0c0e13);
 &:hover {
-    animation: swing 1s;
+    animation: swing .5s;
 }
 `;
 

@@ -37,11 +37,11 @@ app.get("/dbcheck", (req, res) => {
 app.post("/convert", (req, res) => {
     let out;
     let number = req.body.number;
-    let script = req.body.script;
+   // let script = req.body.script;
     console.log(script);
-    const selectedScript = scriptSelector(script);
+    //const selectedScript = scriptSelector(script);
     console.log(number);
-    console.log(selectedScript);
+   // console.log(selectedScript);
     const process = spawn('python', ['convert.py', number]);
     process.stdout.on('data', (data) => {
         out = data.toString();
@@ -51,7 +51,7 @@ app.post("/convert", (req, res) => {
         res.json({
             message: number + ' meters in feet is:',
             data: out + ' feet',
-            script: selectedScript,
+//script: selectedScript,
         });
     })
 })

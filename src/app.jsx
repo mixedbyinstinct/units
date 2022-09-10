@@ -5,29 +5,29 @@ import ReactDOM from 'react-dom';
 
 const GlobalStyles = createGlobalStyle`
 body {
-    background-color: #d0faf9;
+    background-color: #ff7700;
     & h1 {
         font-family: system-ui;
         font-size: 32px;
-        color: #151919;
+        color: #171c26;
     }
     & p {
         font-family: system-ui;
         font-size; 18px;
-        color: #151919;
+        color: #171c26;
     }
     & input[type="text"] {
-        background-color: # d9fbfa;
+        background-color: #ffffff;
         font-family: system-ui;
         font-size: 18px;
         height: 36px;
         text-align: center;
         border-radius: 4px;
-        color: #151919;
+        color: #171c26;
     }
     & label {
         font-family: system-ui;
-        color: #101619;
+        color: #171c26;
         font-size: 14px;
     }
 }
@@ -43,14 +43,14 @@ border-bottom-left-radius: 10px;
 border-bottom-right-radius: 10px;
 z-index: 6;
 filter: drop-shadow(0 3px 4px #171c26);
-background-color: #9ce0fc;
+background-color: #00aaff;
 display: flex;
 align-items: center;
 justify-content: center;
 padding: 10px;
 margin-bottom: 20vh;
 & h1 {
-    color: #171c26;
+    color: #001119;
 }
 `;
 
@@ -61,12 +61,14 @@ const Display = styled.header`
     flex-flow: column nowrap;
     beight: 200px;
     width: 85vw;
-    background-color: #bdf6d9;
+    background-color: #171c26;
     padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px inset #ff7700;
     & h1 {
         font-family: system-ui;
         font-size: 30px;
-        color: #2a3232;
+        color: #ffffff;
 
     }
 `;
@@ -78,16 +80,15 @@ justify-content: center;
 align-items: center;
 margin-top: 15vh;
 padding: 10px;
-
 flex-grow: 1;
 `;
 
 const Button = styled.button`
 background-color: #bae6fc;
-color: #151919;
+color: #171c26;
 font-family: system-ui;
-height: 28px;
-font-size: 14px;
+height: 40px;
+font-size: 16px;
 border-radius: 6px;
 `;
 

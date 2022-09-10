@@ -42,7 +42,7 @@ app.post("/convert", async (req, res) => {
     const selectedScript = await scriptSelector(script);
     console.log(number);
     console.log(selectedScript);
-    const process = spawn('python', ['convert.py', number]);
+    const process = spawn('python', [selectedScript.toString(), number]);
     process.stdout.on('data', (data) => {
         out = data.toString();
     })

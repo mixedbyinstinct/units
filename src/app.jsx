@@ -13,7 +13,7 @@ body {
     }
     & p {
         font-family: system-ui;
-        font-size; 18px;
+        font-size: 18px;
         color: #171c26;
     }
     & input[type="text"] {
@@ -59,7 +59,7 @@ const Display = styled.header`
     align-items: center;
     justify-content: center;
     flex-flow: column nowrap;
-    beight: 200px;
+    beight: 400px;
     width: 85vw;
     background-color: #171c26;
     padding: 8px;
@@ -70,6 +70,9 @@ const Display = styled.header`
         font-size: 30px;
         color: #ffffff;
 
+    }
+    & p {
+        color: #ffffff;
     }
 `;
 

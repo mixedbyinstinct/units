@@ -67,7 +67,7 @@ const Display = styled.header`
     padding: 8px;
     border-radius: 10px;
     margin-top: 5vh;
-    border: 0.1px inseg #803c00
+    border: 0.1px inset #803c00
     box-shadow: 0 0 5px inset #803c00;
     & h1 {
         font-family: system-ui;
@@ -99,6 +99,7 @@ margin-bottom: 5vh;
 height: 40px;
 font-size: 16px;
 border-radius: 6px;
+border: none;
 filter: drop-shadow(0 1px 4px #0c0e13);
 `;
 

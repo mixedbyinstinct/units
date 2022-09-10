@@ -1,17 +1,16 @@
-//console.log(process.argv[2]);
-const mongoose = require('mongoose');
-const url = 'mongodb://localhost:27018/personal-site-db';
-const Script = require('./models/scriptModel.js');
-const path = require('path');
+const MongoClient = requirqe('mongodb').MongoClient;
+const url = 'mognodb://localhost:27018/personal-site-db';
 
-
-    const scriptPath = path.join(__dirname, 'scripts', process.argv[2]).toString();
-    mongoose.connect(url, {useNewUrlParser: true}).then(() => {
-        const dbScript = new Script({
-            title: process.argv[2]
-            ,
-            path: scriptPath,
-        })
-        dbScript.save();
-        console.log('saved');
+function scriptSelector(script) {
+    MongoClient.connect(url,  async function(err, db) {
+        if(err) {
+            console.log(err);
+        }
+        let dbo = db.db('personal-site-db');
+    const outScript =  await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}})
     })
+    console.log(outScript.path);
+    return outScript.path;
+}
+
+module.exports = scriptSelector;

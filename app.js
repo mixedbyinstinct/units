@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const url = 'mongodb://localhost:27018/personal-site-db';
 const MongoClient = require('mongodb').MongoClient;
 const Script = require('./models/scriptModel.js');
+const scriptSelector = require('./scriptSelect.js');
 
 const PORT = 8080;
 
@@ -36,7 +37,11 @@ app.get("/dbcheck", (req, res) => {
 app.post("/convert", (req, res) => {
     let out;
     let number = req.body.number;
+    let script = req.body.script;
+    console.log(script);
+    const selectedScript = scriptSelector(script);
     console.log(number);
+    console.log(selectedScript);
     const process = spawn('python', ['convert.py', number]);
     process.stdout.on('data', (data) => {
         out = data.toString();
@@ -45,7 +50,8 @@ app.post("/convert", (req, res) => {
         console.log(out);
         res.json({
             message: number + ' meters in feet is:',
-            data: out + ' feet'
+            data: out + ' feet',
+            script: selectedScript,
         });
     })
 })

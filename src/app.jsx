@@ -36,15 +36,15 @@ body {
 `;
 
 const Jumbotron = styled.header`
-height: 15vh;
+height: 10vh;
 width: 100vw;
 position: absolute;
 top: 0;
 left: 0;
-border-bottom-left-radius: 6px;
-border-bottom-right-radius: 6px;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
 z-index: 6;
-filter: drop-shadow(0 -3 4px #101619);
+filter: drop-shadow(0 3px 4px #171c26);
 background-color: #9ce0fc;
 display: flex;
 align-items: center;

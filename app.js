@@ -4,6 +4,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const spawn = require('child_process').spawn;
 let app = express();
+const mongoose = require('mongoose');
+const url = 'mongodb://localhost:27018/personal-site-db';
 
 const PORT = 8080;
 
@@ -33,5 +35,4 @@ app.post("/convert", (req, res) => {
         });
     })
 })
-
-app.listen(PORT, () => console.log('server started at port ' + PORT));
+app.listen(PORT, () => console.log('server started at ' + PORT));

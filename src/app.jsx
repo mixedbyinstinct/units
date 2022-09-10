@@ -24,11 +24,13 @@ body {
         text-align: center;
         border-radius: 4px;
         color: #171c26;
+        filter: drop-shadow(0 2px 4px #0c0e13);
     }
     & label {
         font-family: system-ui;
         color: #171c26;
-        font-size: 14px;
+        font-size: 18px;
+        margin-bottom: 2vh;
     }
 }
 `;
@@ -64,7 +66,9 @@ const Display = styled.header`
     background-color: #171c26;
     padding: 8px;
     border-radius: 10px;
-    box-shadow: 0 0 5px inset #ff7700;
+    margin-top: 5vh;
+    border: 0.1px inseg #803c00
+    box-shadow: 0 0 5px inset #803c00;
     & h1 {
         font-family: system-ui;
         font-size: 30px;
@@ -87,12 +91,15 @@ flex-grow: 1;
 `;
 
 const Button = styled.button`
-background-color: #bae6fc;
-color: #171c26;
+background-color: #171c26;
+color: #ffffff;
 font-family: system-ui;
+margin-top: 5vh;
+margin-bottom: 5vh;
 height: 40px;
 font-size: 16px;
 border-radius: 6px;
+filter: drop-shadow(0 1px 4px #0c0e13);
 `;
 
 const App = () => {

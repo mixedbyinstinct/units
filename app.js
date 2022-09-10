@@ -38,21 +38,23 @@ app.post("/convert", async (req, res) => {
     let out;
     let number = req.body.number;
     let script = req.body.scriptChoice;
-    console.log(script);
-    const selectedScript = await scriptSelector(script);
-    console.log(number);
-    console.log(selectedScript);
-    const process = spawn('python', [selectedScript, number]);
-    process.stdout.on('data', (data) => {
-        out = data.toString();
-    })
-    process.stdout.on('end', () => {
-        console.log(out);
-        res.json({
-            message: number + ' meters in feet is:',
-            data: out + ' feet',
-            script: selectedScript,
-        });
+   // let selectedaScript;
+    MongoClient.connect(url, function(err, db) {
+        if(err) {
+            console.log(err);
+        }
+        let dbo = db.db('personal-site-db');
+        const scriptPath = await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}});
+        const process = spawn('python', [scriptPath, number]);
+        process.stdout.on('data', (data) => {
+            out = data.toString();
+        })
+        process.stdout.on('end', () => {
+            return res.json({
+                message: number + ' feet in meters is',
+                data: out + ' meters'
+            })
+        })
     })
 })
 

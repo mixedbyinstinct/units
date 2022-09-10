@@ -6,6 +6,8 @@ const spawn = require('child_process').spawn;
 let app = express();
 const mongoose = require('mongoose');
 const url = 'mongodb://localhost:27018/personal-site-db';
+const MongoClient = require('mongodb').MongoClient;
+const Script = require('./models/scriptModel.js');
 
 const PORT = 8080;
 
@@ -17,6 +19,18 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+})
+
+app.get("/dbcheck", (req, res) => {
+    MongoClient.connect(url, async function(err, db) {
+        if(err) {
+            console.log(err);
+        }
+        let dbo = db.db('personal-site-db');
+
+        const scripts = await dbo.collections("scripts").find().toArray();
+        res.send(scripts);
+    })
 })
 
 app.post("/convert", (req, res) => {

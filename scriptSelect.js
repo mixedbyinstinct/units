@@ -1,20 +1,19 @@
 //console.log(process.argv[2]);
-const mongoose = require('mongoose');
+const MongoClient = require('mongosb').MongoClient;
 const url = 'mongodb://localhost:27018/personal-site-db';
 const Script = require('./models/scriptModel.js');
 const path = require('path');
 
 
 function selectScript() {
-    mongoose.connect(url, {useNewUrlParser: true}).then(function(res){
-        console.log('database connected');
+    const scriptPath = path.join(__dirname, 'scripts', process.argv[2]).toString();
+    mongoose.connect(url, {useNewUrlParser: true}).then(() => {
         const dbScript = new Script({
-            title: ProcessingInstruction.argv[2],
-            path: path.join(__dirname, 'scripts', process.argv[2]),
+            title: process.argv[2]
+            ,
+            path: scriptPath,
         })
-
         dbScript.save();
         console.log('saved');
-        return;
     })
 }

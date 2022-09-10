@@ -45,14 +45,14 @@ border-bottom-left-radius: 6px;
 border-bottom-right-radius: 6px;
 z-index: 6;
 filter: drop-shadow(0 -3 4px #101619);
-background-color: #bae6fc;
+background-color: #9ce0fc;
 display: flex;
 align-items: center;
 justify-content: center;
 padding: 10px;
 margin-bottom: 20vh;
 & h1 {
-    color: #e1f6fe;
+    color: #171c26;
 }
 `;
 

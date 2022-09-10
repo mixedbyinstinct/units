@@ -1,4 +1,4 @@
-const MongoClient = requirqe('mongodb').MongoClient;
+const MongoClient = require('mongodb').MongoClient;
 const url = 'mognodb://localhost:27018/personal-site-db';
 
 function scriptSelector(script) {

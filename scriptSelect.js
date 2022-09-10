@@ -1,9 +1,9 @@
 const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost:27018/personal-site-db';
 
-function scriptSelector(script) {
+async function scriptSelector(script) {
     let outScript;
-    MongoClient.connect(url,  async function(err, db) {
+    await MongoClient.connect(url,  async function(err, db) {
         if(err) {
             console.log(err);
         }

@@ -52,7 +52,8 @@ app.post("/convert", async (req, res) => {
         process.stdout.on('end', () => {
             return res.json({
                 message: number + ' feet in meters is',
-                data: out + ' meters'
+                data: out + ' meters',
+                script: scriptPath,
             })
         })
     })

@@ -1,5 +1,5 @@
 //console.log(process.argv[2]);
-const MongoClient = require('mongodb').MongoClient;
+const mongoose = require('mongoose');
 const url = 'mongodb://localhost:27018/personal-site-db';
 const Script = require('./models/scriptModel.js');
 const path = require('path');

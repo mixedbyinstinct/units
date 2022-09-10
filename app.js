@@ -46,7 +46,7 @@ app.post("/convert", async (req, res) => {
             console.log(err);
         }
         let dbo = db.db('personal-site-db');
-        const scriptPath = await dbo.collection("scripts").findOne({title: /[script*]\.(py)+/ });
+        const scriptPath = await dbo.collection("scripts").findOne({title: /[script*]/ });
         console.log(scriptPath);
         const f2m = /^(\/.*\/.*\/.*\/.*\/((convert)+(ftm)+)\.*)/.test(scriptPath.path);
         if(f2m) {

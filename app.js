@@ -28,7 +28,7 @@ app.get("/dbcheck", (req, res) => {
         }
         let dbo = db.db('personal-site-db');
 
-        const scripts = await dbo.collections("scripts").find().toArray();
+        const scripts = await dbo.collection("scripts").find().toArray();
         res.send(scripts);
     })
 })

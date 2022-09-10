@@ -6,14 +6,14 @@ const path = require('path');
 
 
 function selectScript() {
-    mongoose.connect(url, {useNewUrlParaer: true, useUnifiedTopology: true}).then(async(res) => {
+    mongoose.connect(url, {useNewUrlParaer: true, useUnifiedTopology: true}).then((res) => {
         console.log('database connected');
         const dbScript = new Script({
             title: ProcessingInstruction.argv[2],
             path: path.join(__dirname, 'scripts', process.argv[2]),
         })
 
-        await dbScript.save();
+        dbScript.save();
         console.log('saved');
         return;
     })

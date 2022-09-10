@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mognodb://localhost:27018/personal-site-db';
+const url = 'mongodb://localhost:27018/personal-site-db';
 
 function scriptSelector(script) {
     MongoClient.connect(url,  async function(err, db) {

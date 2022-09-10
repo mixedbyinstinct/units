@@ -46,7 +46,8 @@ app.post("/convert", async (req, res) => {
             console.log(err);
         }
         let dbo = db.db('personal-site-db');
-        const scriptPath = await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}});
+        const scriptPath = await dbo.collection("scripts").findOne({title: {$regex: /([script])+\.(py)+/}});
+        console.log(scriptPath);
         const f2m = /^(\/.*\/.*\/.*\/.*\/((convert)+(ftm)+)\.*)/.test(scriptPath.path);
         if(f2m) {
             unit1 = 'meters';

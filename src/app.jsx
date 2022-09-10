@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
+import 'animate.css';
 
 const GlobalStyles = createGlobalStyle`
 body {
@@ -25,12 +26,16 @@ body {
         border-radius: 4px;
         color: #171c26;
         filter: drop-shadow(0 2px 4px #0c0e13);
+        &:hover {
+            animation: swing 1s;
+        }
     }
     & label {
         font-family: system-ui;
         color: #171c26;
         font-size: 18px;
         margin-bottom: 2vh;
+        animation: backInDown .5s;
     }
 }
 `;
@@ -53,6 +58,7 @@ padding: 10px;
 margin-bottom: 20vh;
 & h1 {
     color: #001119;
+    animation: backInUp .5s;
 }
 `;
 
@@ -72,10 +78,12 @@ const Display = styled.header`
         font-family: system-ui;
         font-size: 30px;
         color: #ffffff;
+        animation: tada .5s;
 
     }
     & p {
         color: #ffffff;
+        animation: tada 1s;
     }
 `;
 
@@ -100,6 +108,9 @@ font-size: 16px;
 border-radius: 6px;
 border: none;
 filter: drop-shadow(0 1px 4px #0c0e13);
+&:hover {
+    animation: swing 1s;
+}
 `;
 
 const App = () => {

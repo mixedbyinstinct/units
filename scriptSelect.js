@@ -11,9 +11,9 @@ function scriptSelector(script) {
     const scriptPath =  await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}});
     console.log('found:' + scriptPath.path);
     outScript = scriptPath.path;
-    return outScript;
-    db.close();
     })
+    console.log('outScript. = ' + outScript);
+    return outScript;
 }
 
 module.exports = scriptSelector;

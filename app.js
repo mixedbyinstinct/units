@@ -47,12 +47,12 @@ app.post("/convert", async (req, res) => {
         }
         let dbo = db.db('personal-site-db');
         const scriptPath = await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}});
-        const f2m = /[ftm+]/.test(scriptPath.path);
+        const f2m = /^.*\/[ftm+]/.test(scriptPath.path);
         if(f2m) {
             unit1 = 'meters';
             unit2 = 'feet';
         }
-        const c2f = /^(([c+][o+][n+][v+][e+][r+][t+])+([ctf+])+)$/.test(scriptPath.path);
+        const c2f = /^.*\/[ctf+]/.test(scriptPath.path);
         if(c2f) {
             unit1 = 'degrees farenheit';
             unit2 = 'degrees celsius';

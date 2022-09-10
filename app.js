@@ -36,6 +36,8 @@ app.get("/dbcheck", (req, res) => {
 
 app.post("/convert", async (req, res) => {
     let out;
+    let unit1;
+    let unit2;
     let number = req.body.number;
     let script = req.body.scriptChoice;
    // let selectedaScript;
@@ -45,6 +47,18 @@ app.post("/convert", async (req, res) => {
         }
         let dbo = db.db('personal-site-db');
         const scriptPath = await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}});
+        if(scriptPath.path.includes(/[ftm*]/)) {
+            unit1 = 'feet';
+            unit2 = 'meters';
+        }
+        else if(scriptPath.path.includes(/[mtf*]/)) {
+            unit1 = 'meters';
+            unit2 = 'feet';
+        }
+        else if(scriptPath.path.includes(/[ctf*]/)) {
+            unit1 = 'degrees celsius';
+            unit2 = 'degrees farenheit';
+        }
         const process = spawn('python', [scriptPath.path, number]);
         process.stdout.on('data', (data) => {
             out = data.toString();

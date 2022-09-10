@@ -6,7 +6,7 @@ const path = require('path');
 
 
 function selectScript() {
-    mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}).then(function(res){
+    mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: false}).then(function(res){
         console.log('database connected');
         const dbScript = new Script({
             title: ProcessingInstruction.argv[2],

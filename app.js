@@ -47,17 +47,14 @@ app.post("/convert", async (req, res) => {
         }
         let dbo = db.db('personal-site-db');
         const scriptPath = await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}});
-        if(scriptPath.path.includes(/[ftm*]/)) {
+        const f2m = scriptPath.path.test(/[ftm*]/);
+        if(f2m) {
             unit1 = 'feet';
             unit2 = 'meters';
         }
-        else if(scriptPath.path.includes(/[mtf*]/)) {
-            unit1 = 'meters';
-            unit2 = 'feet';
-        }
-        else if(scriptPath.path.includes(/[ctf*]/)) {
-            unit1 = 'degrees celsius';
-            unit2 = 'degrees farenheit';
+        else {
+            unit1 = 'error';
+            unit2 = 'u fucked up';
         }
         const process = spawn('python', [scriptPath.path, number]);
         process.stdout.on('data', (data) => {
@@ -65,8 +62,8 @@ app.post("/convert", async (req, res) => {
         })
         process.stdout.on('end', () => {
             return res.json({
-                message: number + ' feet in meters is',
-                data: out + ' meters',
+                message: number + ' ' + unit1 + ' in' + ' ' + unit2 + ' is',
+                data: out + ' ' + unit2,
                // script: scriptPath,
             })
         })

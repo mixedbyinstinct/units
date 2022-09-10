@@ -47,14 +47,15 @@ app.post("/convert", async (req, res) => {
         }
         let dbo = db.db('personal-site-db');
         const scriptPath = await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}});
-        const f2m = /[ftm*]/.test(scriptPath.path);
+        const f2m = /[ftm+]/.test(scriptPath.path);
         if(f2m) {
-            unit1 = 'feet';
-            unit2 = 'meters';
+            unit1 = 'meters';
+            unit2 = 'feet';
         }
-        else {
-            unit1 = 'error';
-            unit2 = 'u fucked up';
+        const c2f = /[ctf+]/.test(scriptPath.path);
+        if(c2f) {
+            unit1 = 'degrees farenheit';
+            unit2 = 'degrees celsius';
         }
         const process = spawn('python', [scriptPath.path, number]);
         process.stdout.on('data', (data) => {

@@ -37,7 +37,7 @@ app.get("/dbcheck", (req, res) => {
 app.post("/convert", (req, res) => {
     let out;
     let number = req.body.number;
-    let script = req.body.script;
+    let script = req.body.scriptChoice;
     console.log(script);
     const selectedScript = scriptSelector(script);
     console.log(number);

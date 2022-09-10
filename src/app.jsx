@@ -76,7 +76,7 @@ const App = () => {
     function convert() {
         let send = {
             number: feet,
-            script: script,
+            scriptChoice: script,
         }
         axios.post("/convert", send).then(({data}) => {
             setPrint(data.message);

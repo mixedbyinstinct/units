@@ -8,7 +8,7 @@ function scriptSelector(script) {
         }
         let dbo = db.db('personal-site-db');
     const outScript =  await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}});
-    console.log(outScript.path);
+    console.log('found:' + outScript.path);
     return outScript.path;
     })
 }

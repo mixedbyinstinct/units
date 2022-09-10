@@ -52,7 +52,7 @@ app.post("/convert", async (req, res) => {
             unit1 = 'meters';
             unit2 = 'feet';
         }
-        const c2f = /[ctf+]/.test(scriptPath.path);
+        const c2f = /^(([c+][o+][n+][v+][e+][r+][t+])+([ctf+])+)$/.test(scriptPath.path);
         if(c2f) {
             unit1 = 'degrees farenheit';
             unit2 = 'degrees celsius';

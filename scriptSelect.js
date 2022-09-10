@@ -5,7 +5,6 @@ const Script = require('./models/scriptModel.js');
 const path = require('path');
 
 
-function selectScript() {
     const scriptPath = path.join(__dirname, 'scripts', process.argv[2]).toString();
     mongoose.connect(url, {useNewUrlParser: true}).then(() => {
         const dbScript = new Script({
@@ -16,4 +15,3 @@ function selectScript() {
         dbScript.save();
         console.log('saved');
     })
-}

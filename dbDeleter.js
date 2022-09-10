@@ -6,7 +6,7 @@ MongoClient.connect(url, function(err, db) {
         console.log(err);
     }
     let dbo = db.db('personal-site-db');
-    dbo.collection("scripts").deleteMany();
+    dbo.collection("scripts").deleteOne({title: "convert.py"})
     console.log('cleared');
-    db.close();
+  //  db.close();
 })

@@ -39,7 +39,7 @@ app.post("/convert", async (req, res) => {
     let number = req.body.number;
     let script = req.body.scriptChoice;
    // let selectedaScript;
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, async function(err, db) {
         if(err) {
             console.log(err);
         }

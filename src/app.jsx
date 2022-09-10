@@ -17,8 +17,6 @@ body {
         color: #151919;
     }
     & input[type="text"] {
-        margin-top: 5vh;
-        margin-bottom: 5vh;
         background-color: # d9fbfa;
         font-family: system-ui;
         font-size: 18px;
@@ -37,7 +35,7 @@ body {
 
 const Jumbotron = styled.header`
 height: 10vh;
-width: 100vw;
+width: 100%;
 position: absolute;
 top: 0;
 left: 0;

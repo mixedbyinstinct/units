@@ -17,6 +17,8 @@ body {
         color: #151919;
     }
     & input[type="text"] {
+        margin-top: 5vh;
+        margin-bottom: 5vh;
         background-color: # d9fbfa;
         font-family: system-ui;
         font-size: 18px;
@@ -25,6 +27,32 @@ body {
         border-radius: 4px;
         color: #151919;
     }
+    & label {
+        font-family: system-ui;
+        color: #101619;
+        font-size: 14px;
+    }
+}
+`;
+
+const Jumbotron = styled.header`
+height: 15vh;
+width: 100vw;
+position: absolute;
+top: 0;
+left: 0;
+border-bottom-left-radius: 6px;
+border-bottom-right-radius: 6px;
+z-index: 6;
+filter: drop-shadow(0 -3 4px #101619);
+background-color: #bae6fc;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 10px;
+margin-bottom: 20vh;
+& h1 {
+    color: #e1f6fe;
 }
 `;
 
@@ -34,12 +62,13 @@ const Display = styled.header`
     justify-content: center;
     flex-flow: column nowrap;
     beight: 200px;
-    width: 40vw;
+    width: 85vw;
     background-color: #bdf6d9;
+    padding: 8px;
     & h1 {
         font-family: system-ui;
-        font-size: 40px;
-        color: #3e5a65;
+        font-size: 30px;
+        color: #2a3232;
 
     }
 `;
@@ -85,12 +114,15 @@ const App = () => {
     }
 
     return (
+        <>
+        <GlobalStyles />
+        <Jumbotron>
+            <h1>Unit Converter</h1>
+        </Jumbotron>
         <Container>
-            <GlobalStyles />
-            <h1>Convert meters to feet</h1>
-            <label>meters</label>
+            <label>Amount</label>
             <input type="text" onChange={getFeet} value={feet}/>
-            <br /><label>script</label>
+            <br /><label>Units</label>
             <input type="text" onChange={getScript} value={script}/>
             <Button onClick={convert}>Convert</Button>
             <Display>
@@ -98,6 +130,7 @@ const App = () => {
             <p>{meters}</p>
             </Display>
         </Container>
+        </>
     )
 }
 

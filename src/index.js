@@ -11,4 +11,4 @@ const Out = () => {
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Out />);
+root.render(<Out />); 

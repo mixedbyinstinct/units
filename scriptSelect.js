@@ -7,10 +7,10 @@ function scriptSelector(script) {
             console.log(err);
         }
         let dbo = db.db('personal-site-db');
-    const outScript =  await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}})
-    })
+    const outScript =  await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}});
     console.log(outScript.path);
     return outScript.path;
+    })
 }
 
 module.exports = scriptSelector;

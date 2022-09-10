@@ -34,12 +34,12 @@ app.get("/dbcheck", (req, res) => {
     })
 })
 
-app.post("/convert", (req, res) => {
+app.post("/convert", async (req, res) => {
     let out;
     let number = req.body.number;
     let script = req.body.scriptChoice;
     console.log(script);
-    const selectedScript = scriptSelector(script);
+    const selectedScript = await scriptSelector(script);
     console.log(number);
     console.log(selectedScript);
     const process = spawn('python', ['convert.py', number]);

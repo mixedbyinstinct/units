@@ -62,7 +62,7 @@ border-radius: 6px;
 `;
 
 const App = () => {
-    const [script, setScript] = useStare('');
+    const [script, setScript] = useState('');
     const [feet, setFeet] = useState('');
     const [meters, setMeters] = useState('');
     const [print, setPrint] = useState('');
@@ -91,7 +91,7 @@ const App = () => {
             <label>meters</label>
             <input type="text" onChange={getFeet} value={feet}/>
             <br /><label>script</label>
-            <input type="text" onChange={getSscript} value={script}/>
+            <input type="text" onChange={getScript} value={script}/>
             <Button onClick={convert}>Convert</Button>
             <Display>
             <h1>{print}</h1>

@@ -8,11 +8,12 @@ function scriptSelector(script) {
             console.log(err);
         }
         let dbo = db.db('personal-site-db');
-    outScript =  await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}});
-    console.log('found:' + outScript.path);
+    const scriptPath =  await dbo.collection("scripts").findOne({title: {$regex: /[script*]/}});
+    console.log('found:' + scriptPath.path);
+    outScript = scriptPath.path;
     db.close();
     })
-    return outScript.path;
+    return outScript;
 }
 
 module.exports = scriptSelector;

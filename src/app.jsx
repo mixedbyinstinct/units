@@ -76,6 +76,9 @@ display: flex;
 flex-flow: column nowrap;
 justify-content: center;
 align-items: center;
+margin-top: 15vh;
+padding: 10px;
+
 flex-grow: 1;
 `;
 

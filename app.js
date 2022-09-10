@@ -49,4 +49,7 @@ app.post("/convert", (req, res) => {
         });
     })
 })
-app.listen(PORT, () => console.log('server started at ' + PORT));
+
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopogy: true}).then((res) => {
+    app.listen(PORT, () => console.log('server started at ' + PORT));
+})

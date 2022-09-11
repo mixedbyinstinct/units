@@ -93,7 +93,7 @@ const Display = styled.header`
     border: 0.5px inset #803c00;
     & h1 {
         font-family: 'heading';
-        font-size: 30px;
+        font-size: 24px;
         color: #ffffff;
         animation: tada .5s;
 

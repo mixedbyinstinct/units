@@ -55,13 +55,13 @@ app.post("/convert", async (req, res) => {
         }
         const c2f = /^(\/.*\/.*\/.*\/.*\/(c)+\.*)/.test(scriptPath.path);
         if(c2f) {
-            unit1 = 'degrees farenheit';
-            unit2 = 'degrees celsius';
+            unit1 = 'degrees celsius';
+            unit2 = 'degrees farenheit';
         }
         const k2m = /^(\/.*\/.*\/.*\/.*\/(k)+\.*)/.test(scriptPath.path);
         if(k2m) {
-            unit1 = 'miles';
-            unit2 = 'kilometers';
+            unit1 = 'kilometers';
+            unit2 = 'miles';
         }
         const process = spawn('python', [scriptPath.path, number]);
         process.stdout.on('data', (data) => {

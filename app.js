@@ -58,6 +58,11 @@ app.post("/convert", async (req, res) => {
             unit1 = 'degrees farenheit';
             unit2 = 'degrees celsius';
         }
+        const k2m = /^(\/.*\/.*\/.*\/.*\/(k)+\.*)/.test(scriptPath.path);
+        if(k2m) {
+            unit1 = 'miles';
+            unit2 = 'kilometers';
+        }
         const process = spawn('python', [scriptPath.path, number]);
         process.stdout.on('data', (data) => {
             out = data.toString();

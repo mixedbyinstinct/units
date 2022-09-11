@@ -63,6 +63,11 @@ app.post("/convert", async (req, res) => {
             unit1 = 'kilometers';
             unit2 = 'miles';
         }
+        const l2g = /^(\/.*\/.*\/.*\/.*\/(l)+\.*)/.test(scriptPath.path);
+        if(l2g) {
+            unit1 = 'liters';
+            unit2 = 'gallons';
+        }
         const process = spawn('python', [scriptPath.path, number]);
         process.stdout.on('data', (data) => {
             out = data.toString();

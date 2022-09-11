@@ -3,23 +3,40 @@ import styled, { createGlobalStyle } from 'styled-components';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import 'animate.css';
+import heading from './Syne-ExtraBold.ttf';
+import text from './Barlow-Regular.otf';
+import buttons from './Syne-SemiBold.ttf';
 
 const GlobalStyles = createGlobalStyle`
+@font-face {
+    font-family: 'heading';
+    src: url(${heading}) format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'text';
+    src: url(${text}) format('opentype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'buttons';
+    src: url(${buttons}) format('truetype');
+}
 body {
     background-color: #ff7700;
     & h1 {
-        font-family: system-ui;
+        font-family: 'heading';
         font-size: 32px;
         color: #171c26;
     }
     & p {
-        font-family: system-ui;
+        font-family: 'text';
         font-size: 18px;
         color: #171c26;
     }
     & input[type="text"] {
         background-color: #ffffff;
-        font-family: system-ui;
+        font-family: 'text';
         font-size: 18px;
         height: 36px;
         text-align: center;
@@ -31,7 +48,7 @@ body {
         }
     }
     & label {
-        font-family: system-ui;
+        font-family: 'text';
         color: #171c26;
         font-size: 18px;
         margin-bottom: 2vh;
@@ -75,7 +92,7 @@ const Display = styled.header`
     margin-top: 5vh;
     border: 0.5px inset #803c00;
     & h1 {
-        font-family: system-ui;
+        font-family: 'heading';
         font-size: 30px;
         color: #ffffff;
         animation: tada .5s;
@@ -100,7 +117,7 @@ flex-grow: 1;
 const Button = styled.button`
 background-color: #171c26;
 color: #ffffff;
-font-family: system-ui;
+font-family: 'buttons';
 margin-top: 5vh;
 margin-bottom: 5vh;
 height: 40px;
